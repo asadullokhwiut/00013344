@@ -6,10 +6,10 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "Home", href: "#hero" },
-    { label: "Comparison", href: "#comparison" },
-    { label: "Latest Info", href: "#latest-info" },
-    { label: "Partnership", href: "#partnership" },
-    { label: "Integration", href: "#integration" },
+    { label: "Universities", href: "#comparison" },
+    { label: "Prices", href: "#latest-info" },
+    { label: "Partnerships", href: "#partnership" },
+    { label: "About Us", href: "#integration" },
   ];
 
   return (
