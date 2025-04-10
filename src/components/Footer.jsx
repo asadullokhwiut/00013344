@@ -17,7 +17,6 @@ const Footer = () => {
             <ul className="space-y-1">
               <li className="text-yellow-500">Overview</li>
               <li>Pricing</li>
-              <li>Customer stories</li>
             </ul>
           </div>
           <div>
@@ -32,8 +31,6 @@ const Footer = () => {
             <h4 className="font-semibold mb-2">Company</h4>
             <ul className="space-y-1">
               <li>About us</li>
-              <li>Careers</li>
-              <li>Media kit</li>
             </ul>
           </div>
   

@@ -7,18 +7,19 @@ const LatestInformationSection = () => {
           {/* Left Content */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Latest{" "}
+              Affordable{" "}
               <span className="relative inline-block">
                 <span className="absolute bottom-0 left-0 w-full h-2 bg-yellow-300 -z-10 rounded-sm" />
-                Information
+                Pricing
               </span>
             </h2>
             <p className="text-gray-200 mb-6">
-              Use the web clipper extension, available on Chrome and Firefox, to
-              save web pages or take screenshots as notes.
+              Among the education platforms, EduMatch is obviously one of 
+              the cheapest and trustworthy platform.
+              No reason to wait, just spend a LITTLE and get a LOT!
             </p>
             <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
-              Let's Go →
+              Purchase →
             </button>
           </div>
   

@@ -16,14 +16,15 @@ const ComparisonToolSection = () => {
           {/* Left Content */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Comparison Tool
+              Find the best suitable University!
             </h2>
             <p className="text-gray-700 mb-6">
               <span className="text-yellow-500 font-medium">
-                Images, videos, PDFs and audio files are supported.
+                Explore the world of Universities.
               </span>{" "}
-              Create math expressions and diagrams directly from the app. Take
-              photos with the mobile app and save them to a note.
+              Choose the one or two university you are searching for to compare them
+              in our user-friendly platform. End of time-consuming searchs
+              starts with US.
             </p>
             <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
               Get Started →

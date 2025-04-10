@@ -16,16 +16,16 @@ const PartnershipSection = () => {
           {/* Right Content */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Partnership with{" "}
+              Partnership with top{" "}
               <span className="relative inline-block">
                 <span className="absolute bottom-0 left-0 w-full h-2 bg-yellow-300 -z-10 rounded-sm" />
                 Universities
               </span>
             </h2>
             <p className="text-gray-700 mb-6">
-              Customise the app with plugins, custom themes and multiple text
-              editors (Rich Text or Markdown). Or create your own scripts and
-              plugins using the Extension API.
+              Our company already signed a contract with many top-tier universities in the country
+              and aims to make global expension in the nearly period. Partnership means up-to-date information
+              and first-to-get latest news about your favourite university.
             </p>
             <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
               Let's Go →
