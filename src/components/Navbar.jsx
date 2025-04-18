@@ -1,15 +1,18 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const navLinks = [
     { label: "Home", href: "#hero" },
-    { label: "Universities", href: "#comparison" },
-    { label: "Pricing", href: "#latest-info" },
-    { label: "Partnerships", href: "#partnership" },
-    { label: "About Us", href: "#integration" },
+    { label: "Comparison", href: "#comparison" },
+    { label: "Latest Info", href: "#latest-info" },
+    { label: "Partnership", href: "#partnership" },
+    { label: "Integration", href: "#integration" },
   ];
 
   return (
@@ -22,29 +25,36 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-8 font-medium">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="cursor-pointer hover:text-gray-300 transition"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {isHome && (
+          <ul className="hidden md:flex gap-8 font-medium">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className="cursor-pointer hover:text-gray-300 transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
-        {/* Buttons */}
+        {/* Desktop Buttons */}
         <div className="hidden md:flex gap-4">
-          <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium">
+          <Link
+            to="/login"
+            className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium"
+          >
             Log In
-          </button>
-          <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium">
+          </Link>
+          <Link
+            to="/signup"
+            className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium"
+          >
             Sign Up
-          </button>
+          </Link>
         </div>
-
 
         {/* Hamburger Icon */}
         <div
@@ -61,23 +71,32 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden mt-4 px-2">
           <ul className="flex flex-col gap-4 text-white font-medium">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="cursor-pointer hover:text-gray-300 transition"
-                  onClick={() => setIsOpen(false)} // auto-close menu
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium">
+            {isHome &&
+              navLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="cursor-pointer hover:text-gray-300 transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            <Link
+              to="/login"
+              className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium"
+              onClick={() => setIsOpen(false)}
+            >
               Log In
-            </button>
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium mt-2">
+            </Link>
+            <Link
+              to="/signup"
+              className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-4 py-2 rounded-md font-medium mt-2"
+              onClick={() => setIsOpen(false)}
+            >
               Sign Up
-            </button>
+            </Link>
           </ul>
         </div>
       )}
