@@ -20,10 +20,10 @@ const ComparisonToolSection = () => {
             </h2>
             <p className="text-gray-700 mb-6">
               <span className="text-yellow-500 font-medium">
-                Images, videos, PDFs and audio files are supported.
+                Explore the world of universities.
               </span>{" "}
-              Create math expressions and diagrams directly from the app. Take
-              photos with the mobile app and save them to a note.
+              Find the university of your dream! Compare them based on various features
+              in addition with latest information.
             </p>
             <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
               Get Started →

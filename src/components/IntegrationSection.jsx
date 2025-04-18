@@ -25,14 +25,12 @@ const IntegrationSection = () => {
           {/* Right Side: Text Content */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
-              Find continuously <br />
-              updated information <br />
-              about <span className="text-white font-bold">Universities</span>
+              <span className="text-white font-bold">Abous Us</span>
             </h2>
             <p className="text-gray-200 mb-6">
-              Whitespace teams up with your favorite software. Integrate with over
-              1000+ apps with Zapier to have all the tools you need for your
-              project success.
+              EduMatch is the newly developed platform focusing on univeristy
+              selection progress making it easier with the help of latest technologies
+              and various methods!
             </p>
             <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
               Read more →

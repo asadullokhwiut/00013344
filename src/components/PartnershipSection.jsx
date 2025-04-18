@@ -23,9 +23,9 @@ const PartnershipSection = () => {
               </span>
             </h2>
             <p className="text-gray-700 mb-6">
-              Customise the app with plugins, custom themes and multiple text
-              editors (Rich Text or Markdown). Or create your own scripts and
-              plugins using the Extension API.
+              Find the up-to-date information and latest news of top
+              universities of Uzbekistan. Since the development, EduMatch partnered with
+              several top universities and still continues its progress! 
             </p>
             <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
               Let's Go →
