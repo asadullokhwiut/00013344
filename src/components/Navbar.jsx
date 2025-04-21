@@ -11,7 +11,7 @@ const Navbar = () => {
     { label: "Home", href: "/" },
     { label: "Universities", href: "/universities" },
     { label: "Recommendation", href: "/recommendation" },
-    { label: "Partners", href: "#partnership" },
+    { label: "Partners", href: "/partnership" },
     { label: "About Us", href: "#integration" },
   ];
 

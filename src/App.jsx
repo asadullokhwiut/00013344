@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ComparisonPage from "./pages/Universities";
 import RecommendationPage from "./pages/Recommendation";
+import PartnershipPage from "./pages/Partnership";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/universities" element={<ComparisonPage />} />
         <Route path="/recommendation" element={<RecommendationPage />} />
+        <Route path="/partnership" element={<PartnershipPage />} />
       </Routes>
       <Footer />
     </>
