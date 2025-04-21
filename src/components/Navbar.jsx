@@ -1,6 +1,7 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ComparisonPage from "../pages/Universities";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "Home", href: "#hero" },
-    { label: "Universities", href: "#comparison" },
+    { label: "Universities", href: "/universities" },
     { label: "Recommendation", href: "#latest-info" },
     { label: "Partners", href: "#partnership" },
     { label: "About Us", href: "#integration" },

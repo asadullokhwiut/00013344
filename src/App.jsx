@@ -8,6 +8,7 @@ import PartnershipSection from "./components/PartnershipSection";
 import IntegrationSection from "./components/IntegrationSection";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ComparisonPage from "./pages/Universities";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/universities" element={<ComparisonPage />} />
       </Routes>
       <Footer />
     </>
