@@ -1,7 +1,6 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ComparisonPage from "../pages/Universities";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,9 +8,9 @@ const Navbar = () => {
   const isHome = location.pathname === "/";
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
+    { label: "Home", href: "/" },
     { label: "Universities", href: "/universities" },
-    { label: "Recommendation", href: "#latest-info" },
+    { label: "Recommendation", href: "/recommendation" },
     { label: "Partners", href: "#partnership" },
     { label: "About Us", href: "#integration" },
   ];
@@ -26,7 +25,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        {isHome && (
+        
           <ul className="hidden md:flex gap-8 font-medium">
             {navLinks.map((link) => (
               <li key={link.label}>
@@ -39,7 +38,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        )}
+        
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex gap-4">
