@@ -1,10 +1,10 @@
-// src/pages/Signup.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 export default function Signup() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,15 +13,19 @@ export default function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/'); // Redirect to home after signup
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCredential.user, {
+        displayName: name,
+      });
+      navigate('/');
     } catch (err) {
       if (err.code === 'auth/email-already-in-use') {
         setError('An account with this email already exists. Please log in instead.');
       } else {
         setError('Signup failed. Please try again later.');
       }
-    }};
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-purple-100">
@@ -33,6 +37,14 @@ export default function Signup() {
 
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
+        <input
+          type="text"
+          placeholder="Full Name"
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full p-2 mb-4 border border-purple-300 rounded"
+        />
         <input
           type="email"
           placeholder="Email"

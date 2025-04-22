@@ -7,7 +7,8 @@ export default function Profile() {
   const [user, setUser] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState('');
   const [displayName, setDisplayName] = useState('');
-  const [status, setStatus] = useState('');
+  const [newName, setNewName] = useState('');
+  const [editingName, setEditingName] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function Profile() {
       }
       if (currentUser?.displayName) {
         setDisplayName(currentUser.displayName);
+        setNewName(currentUser.displayName);
       }
     });
     return () => unsub();
@@ -30,18 +32,19 @@ export default function Profile() {
 
   const handleUpdateName = async () => {
     try {
-      await updateProfile(auth.currentUser, { displayName });
-      setStatus('Name updated!');
+      await updateProfile(auth.currentUser, { displayName: newName });
+      window.location.reload(); // refresh to reflect updated name
     } catch (err) {
       console.error(err);
-      setStatus('Update failed.');
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 flex justify-center items-center p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-        <h2 className="text-2xl font-bold text-center mb-6 text-purple-800">Your Profile</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-purple-800">
+          {displayName || 'Unnamed'}
+        </h2>
 
         {avatarUrl ? (
           <img
@@ -57,27 +60,36 @@ export default function Profile() {
 
         {user && (
           <>
-            <p className="text-center text-purple-800 mb-2">
+            <p className="text-center text-purple-800 mb-4">
               <strong>Email:</strong> {user.email}
             </p>
 
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-purple-700 mb-1">
-                Display Name
-              </label>
-              <input
-                type="text"
-                value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
-                className="w-full p-2 border border-purple-300 rounded"
-              />
+            {!editingName ? (
               <button
-                onClick={handleUpdateName}
-                className="mt-2 bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700"
+                onClick={() => setEditingName(true)}
+                className="bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700 mb-4"
               >
-                Update Name
+                Change Name
               </button>
-            </div>
+            ) : (
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-purple-700 mb-1">
+                  New Name
+                </label>
+                <input
+                  type="text"
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                  className="w-full p-2 border border-purple-300 rounded"
+                />
+                <button
+                  onClick={handleUpdateName}
+                  className="mt-2 bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700"
+                >
+                  Update Name
+                </button>
+              </div>
+            )}
 
             <button
               onClick={handleLogout}
@@ -85,8 +97,6 @@ export default function Profile() {
             >
               Logout
             </button>
-
-            {status && <p className="text-center text-sm text-gray-600 mt-3">{status}</p>}
           </>
         )}
       </div>
