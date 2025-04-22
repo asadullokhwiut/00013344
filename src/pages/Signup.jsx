@@ -1,45 +1,61 @@
-import { Link } from "react-router-dom";
+// src/pages/Signup.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-const Signup = () => {
+export default function Signup() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/'); // Redirect to home after signup
+    } catch (err) {
+      if (err.code === 'auth/email-already-in-use') {
+        setError('An account with this email already exists. Please log in instead.');
+      } else {
+        setError('Signup failed. Please try again later.');
+      }
+    }};
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2D0B5A] via-[#5F1B96] to-[#D12EBD] px-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Sign Up</h2>
-        <form className="space-y-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5F1B96]"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5F1B96]"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5F1B96]"
-          />
-          <button
-            type="submit"
-            className="w-full bg-[#5F1B96] hover:bg-[#4A177A] text-white font-medium py-2 rounded-md transition"
-          >
-            Sign Up
-          </button>
-        </form>
-        <p className="mt-4 text-sm text-center text-gray-600">
-          Already have an account?{" "}
-          <Link to="/login" className="text-[#5F1B96] hover:underline font-medium">
-            Log In
-          </Link>
-        </p>
-        <Link to="/" className="text-sm text-[#5F1B96] underline block mt-6 text-center">
-          ← Back to Home
-        </Link>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-purple-100">
+      <form
+        onSubmit={handleSignup}
+        className="bg-white p-8 rounded shadow-md w-full max-w-sm"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-purple-700">Sign Up</h2>
+
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-2 mb-4 border border-purple-300 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-2 mb-4 border border-purple-300 rounded"
+        />
+        <button
+          type="submit"
+          className="bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700"
+        >
+          Create Account
+        </button>
+      </form>
     </div>
   );
-};
-
-export default Signup;
+}

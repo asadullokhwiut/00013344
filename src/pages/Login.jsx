@@ -1,40 +1,69 @@
-import { Link } from "react-router-dom";
+// src/pages/Login.jsx
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 
-const Login = () => {
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/');
+    } catch (err) {
+      setError('Invalid credentials. Please try again or sign up below.');
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2D0B5A] via-[#5F1B96] to-[#D12EBD] px-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Log In</h2>
-        <form className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5F1B96]"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5F1B96]"
-          />
-          <button
-            type="submit"
-            className="w-full bg-[#5F1B96] hover:bg-[#4A177A] text-white font-medium py-2 rounded-md transition"
-          >
-            Log In
-          </button>
-        </form>
-        <p className="mt-4 text-sm text-center text-gray-600">
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-[#5F1B96] hover:underline font-medium">
-            Sign Up
-          </Link>
-        </p>
-        <Link to="/" className="text-sm text-[#5F1B96] underline block mt-6 text-center">
-          ← Back to Home
-        </Link>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-purple-100">
+      <form
+        onSubmit={handleLogin}
+        className="bg-white p-8 rounded shadow-md w-full max-w-sm"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-purple-700">Log In</h2>
+
+        {error && (
+          <div className="text-red-500 text-sm mb-4">
+            {error}
+            <div className="mt-2">
+              <span>Don’t have an account? </span>
+              <Link to="/signup" className="text-purple-600 underline">
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        )}
+
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-2 mb-4 border border-purple-300 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-2 mb-4 border border-purple-300 rounded"
+        />
+        <button
+          type="submit"
+          className="bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700"
+        >
+          Log In
+        </button>
+      </form>
     </div>
   );
-};
-
-export default Login;
+}
