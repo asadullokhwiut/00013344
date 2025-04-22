@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import wiut from '../partners/wiut.jpg';
+import suit from '../partners/suit.jpg';
+import oxford from '../partners/oxford.jpg';
+import cambridge from '../partners/cambridge.jpg';
 
 export default function PartnershipPage() {
   const partners = [
-    { id: 1, name: 'Partner One', logo: '/assets/logo1.png', description: 'We collaborate on XYZ solutions.' },
-    { id: 2, name: 'Partner Two', logo: '/assets/logo2.png', description: 'Specializing in ABC services.' },
-    { id: 3, name: 'Partner Three', logo: '/assets/logo3.png', description: 'Providing DEF integrations.' },
-    { id: 4, name: 'Partner Four', logo: '/assets/logo4.png', description: 'Experts in GHI consultancy.' }
+    { id: 1, name: 'WIUT', img: wiut, description: 'The #1 international university in Uzbekistan!' },
+    { id: 2, name: 'SUIT', img: suit, description: 'Singapore University in Tashkent.' },
+    { id: 3, name: 'Oxford', img: oxford, description: 'Top prestige university in the world.' },
+    { id: 4, name: 'Cambridge', img: cambridge, description: 'The #1 university in the UK.' }
   ];
 
   const [formData, setFormData] = useState({
     companyName: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   });
   const [status, setStatus] = useState('');
 
@@ -33,9 +37,14 @@ export default function PartnershipPage() {
     emailjs.send(
       'edumatch',
       'edumatchtemp',
-      formData,
+      {
+        name: formData.companyName,
+        email: formData.email,
+        message: formData.message,
+        title: 'Partnership Inquiry'
+      },
       'Y-0bEGRWD2qdcQPZf'
-    )
+      )    
       .then(() => {
         setStatus('Thank you! Your inquiry has been sent.');
         setFormData({ companyName: '', email: '', phone: '', message: '' });
@@ -57,7 +66,7 @@ export default function PartnershipPage() {
             key={partner.id}
             className="bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 rounded-lg shadow p-6 flex flex-col items-center text-center"
           >
-            <img src={partner.logo} alt={partner.name} className="h-16 w-auto mb-4" />
+            <img src={partner.img} alt={partner.name} className="w-full h-48 object-cover rounded mb-4 shadow" />
             <h2 className="text-xl font-semibold mb-2 text-white">
               {partner.name}
             </h2>
