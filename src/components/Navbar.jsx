@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import logo from '../assets/logo.png'; // adjust if needed
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const Navbar = () => {
     { label: 'Universities', to: '/universities' },
     { label: 'Recommendation', to: '/recommendation' },
     { label: 'Partnership', to: '/partnership' },
-    { label: 'About Us', href: '#integration' },
+    { label: 'About Us', to: '/about' },
   ];
 
   useEffect(() => {
