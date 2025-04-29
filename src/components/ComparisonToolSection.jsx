@@ -1,4 +1,5 @@
 import comparisonImg from "../assets/comparison.png";
+import { Link } from 'react-router-dom';
 
 const ComparisonToolSection = () => {
     return (
@@ -25,9 +26,11 @@ const ComparisonToolSection = () => {
               Find the university of your dream! Compare them based on various features
               in addition with latest information.
             </p>
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
-              Get Started →
-            </button>
+            <Link to="/universities">
+              <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-5 py-2 rounded-md font-medium">
+                Get Started →
+              </button>
+            </Link>
           </div>
   
           {/* Right Image */}

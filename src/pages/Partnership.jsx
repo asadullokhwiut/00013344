@@ -58,7 +58,7 @@ export default function PartnershipPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 p-6">
       <h1 className="text-3xl font-bold text-center text-purple-900 mb-8">
-        Our Partners
+        Our Top Partners
       </h1>
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {partners.map(partner => (

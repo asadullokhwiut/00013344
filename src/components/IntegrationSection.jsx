@@ -1,4 +1,5 @@
 import integrationGraphic from "../assets/integration-graphic.png";
+import { Link } from 'react-router-dom';
 
 const IntegrationSection = () => {
     return (
@@ -32,9 +33,11 @@ const IntegrationSection = () => {
               selection progress making it easier with the help of latest technologies
               and various methods!
             </p>
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
-              Read more →
-            </button>
+            <Link to="/about">
+              <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-5 py-2 rounded-md font-medium">
+                Read more →
+              </button>
+            </Link>
           </div>
         </div>
       </section>

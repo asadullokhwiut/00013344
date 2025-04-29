@@ -1,4 +1,5 @@
 import partnershipImg from "../assets/partnership.jpg";
+import { Link } from 'react-router-dom';
 
 const PartnershipSection = () => {
     return (
@@ -27,9 +28,11 @@ const PartnershipSection = () => {
               universities of Uzbekistan. Since the development, EduMatch partnered with
               several top universities and still continues its progress! 
             </p>
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
-              Let's Go →
-            </button>
+            <Link to="/partnership">
+              <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-5 py-2 rounded-md font-medium">
+                Find Out →
+              </button>
+            </Link>
           </div>
         </div>
       </section>

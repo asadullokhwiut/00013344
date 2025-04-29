@@ -1,4 +1,5 @@
 import logo from "../assets/logo.png";
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
       <footer className="bg-white text-gray-800 border-t">
@@ -13,41 +14,41 @@ const Footer = () => {
   
           {/* Links */}
           <div>
-            <h4 className="font-semibold mb-2">Product</h4>
+            <h4 className="font-semibold mb-2">Contact Us</h4>
+            <ul className="space-y-1">        
+              <li>Email: aasadullokh@icloud.com</li>
+              <li>Phone: +998772939333</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Social Media</h4>
+            <ul className="s@pace-y-1">
+              <li>Telegram: @aasadullokh</li>
+              <li>Instagram: @aasadullokh_</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Services</h4>
             <ul className="space-y-1">
-              <li className="text-yellow-500">Pricing</li>
-              <li>Compare</li>
+              <li>Comparison Tool</li>
               <li>Personal Recommendation</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Resources</h4>
-            <ul className="space-y-1">
-              <li>Blog</li>
-              <li>Guides & tutorials</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Company</h4>
-            <ul className="space-y-1">
-              <li>About us</li>
             </ul>
           </div>
   
           {/* CTA */}
           <div>
             <h4 className="font-semibold mb-4">Try It Today</h4>
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-5 py-2 rounded-md font-medium">
-              Start today →
-            </button>
+            <Link to="/universities">
+              <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-5 py-2 rounded-md font-medium">
+                Start Today →
+              </button>
+            </Link>
+
           </div>
         </div>
   
         {/* Bottom Footer */}
         <div className="border-t text-sm py-4 px-4 text-gray-500 flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
-          <div className="flex items-center gap-2 mb-2 md:mb-0">
-            🌐 English
-          </div>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:underline">
               Terms & privacy

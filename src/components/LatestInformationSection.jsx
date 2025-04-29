@@ -1,4 +1,5 @@
 import latestInfoImg from "../assets/latest-info.png";
+import { Link } from 'react-router-dom';
 
 const LatestInformationSection = () => {
     return (
@@ -17,9 +18,11 @@ const LatestInformationSection = () => {
               Tell us your preferences and we will find you the most
               suitable univeristy! Do not wait, just
             </p>
-            <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-6 py-3 rounded-md font-medium">
-              Let's Go →
-            </button>
+            <Link to="/recommendation">
+              <button className="bg-[#5F1B96] hover:bg-[#4A177A] transition text-white px-5 py-2 rounded-md font-medium">
+                Let’s Go →
+              </button>
+            </Link>
           </div>
   
           {/* Right Image */}
